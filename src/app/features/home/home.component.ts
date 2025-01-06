@@ -26,8 +26,8 @@ import { ShowAuthedDirective } from "../../shared/show-authed.directive";
     }
 
     img {
-        width: 5000px;
-        height: 5000px;
+        width: 500px;
+        height: 500px;
     }
 
     body {
@@ -99,7 +99,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     // Ajout de multiples GIFs lourds dans le DOM
     const container = document.querySelector('.container');
     if (container) {
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 3; i++) {
         const img = document.createElement('img');
         img.src = 'https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif';
         container.appendChild(img);

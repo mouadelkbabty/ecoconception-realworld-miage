@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'GrandSpace';
+    src: url('/assets/fonts/GrandSpace.otf') format('opentype');
+  }
+  
+  body {
+    font-family: 'GrandSpace', sans-serif;
+  }
+  
