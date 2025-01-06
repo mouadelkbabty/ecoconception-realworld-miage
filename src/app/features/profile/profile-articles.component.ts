@@ -17,6 +17,7 @@ export class ProfileArticlesComponent implements OnInit, OnDestroy {
   profile!: Profile;
   articlesConfig!: ArticleListConfig;
   destroy$ = new Subject<void>();
+  isLoading = true;  
 
   constructor(
     private route: ActivatedRoute,
@@ -24,20 +25,23 @@ export class ProfileArticlesComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.profileService
-      .get(this.route.snapshot.params["username"])
-      .pipe(takeUntil(this.destroy$))
-      .subscribe({
-        next: (profile: Profile) => {
-          this.profile = profile;
-          this.articlesConfig = {
-            type: "all",
-            filters: {
-              author: this.profile.username,
-            },
-          };
-        },
-      });
+    setTimeout(() => {
+      this.isLoading = false;  
+      this.profileService
+        .get(this.route.snapshot.params["username"])
+        .pipe(takeUntil(this.destroy$))
+        .subscribe({
+          next: (profile: Profile) => {
+            this.profile = profile;
+            this.articlesConfig = {
+              type: "all",
+              filters: {
+                author: this.profile.username,
+              },
+            };
+          },
+        });
+    }, 10000); 
   }
 
   ngOnDestroy(): void {
