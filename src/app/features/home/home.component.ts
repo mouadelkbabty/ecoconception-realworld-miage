@@ -96,21 +96,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.tagsService.getAll().subscribe();
     }
 
-    // Ajout de multiples GIFs lourds dans le DOM
-    const container = document.querySelector('.container');
-    if (container) {
-      for (let i = 0; i < 3; i++) {
-        const img = document.createElement('img');
-        img.src = 'https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif';
-        container.appendChild(img);
-      }
-    }
-
-    // Utilisation massive d'animations CSS
-    const text = document.createElement('div');
-    text.className = 'animated-text';
-    text.innerText = 'Animated Text Example';
-    container?.appendChild(text);
+  
   }
 
   ngOnDestroy(): void {
