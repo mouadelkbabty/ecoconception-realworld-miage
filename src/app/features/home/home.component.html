@@ -42,10 +42,8 @@
             </li>
           </ul>
         </div>
+
         <app-article-list [limit]="10" [config]="listConfig"></app-article-list>
-        <a class="nav-link" href="/editor" routerLinkActive="active">
-          <i class="ion-compose"></i>&nbsp;New Article
-        </a>
       </div>
 
       <div class="col-md-3" *rxLet="tags$; let tags">
@@ -61,6 +59,7 @@
               {{ tag }}
             </a>
           </div>
+
           <div [hidden]="tagsLoaded">Loading tags...</div>
 
           <div [hidden]="!tagsLoaded || tags.length > 0">

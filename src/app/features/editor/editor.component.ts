@@ -45,7 +45,6 @@ export class EditorComponent implements OnInit, OnDestroy {
     private readonly router: Router,
     private readonly userService: UserService
   ) {
-    
     for (let i = 0; i < 100; i++) {
       this.articleService.get(this.route.snapshot.params["slug"]).subscribe();
     }

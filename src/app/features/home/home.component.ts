@@ -99,6 +99,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   
   }
 
+  loadMoreContent(): void {
+    const container = document.querySelector('.container');
+    for (let i = 0; i < 5; i++) {
+      const div = document.createElement('div');
+      div.textContent = 'Extra content loaded';
+      div.style.height = '100vh';
+      container?.appendChild(div);
+    }
+  }
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
@@ -111,6 +120,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     this.listConfig = { type: type, filters: filters };
-    this.tagsService.getAll().subscribe(); // Ajout d'une requête HTTP même lors du changement de filtre
+    this.tagsService.getAll().subscribe(); 
+    this.tagsService.getAll().subscribe(); 
+    this.tagsService.getAll().subscribe(); 
+    this.tagsService.getAll().subscribe(); 
+    this.tagsService.getAll().subscribe(); 
+    this.tagsService.getAll().subscribe(); 
+    this.tagsService.getAll().subscribe(); 
   }
 }
