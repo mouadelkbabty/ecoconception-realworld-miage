@@ -60,12 +60,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
     private readonly commentsService: CommentsService,
     private readonly router: Router,
     private readonly userService: UserService
-  ) {
-    // Multiplication massive des requêtes HTTP inutiles
-    for (let i = 0; i < 100; i++) {
-      this.articleService.get(route.snapshot.params["slug"]).subscribe();
-    }
-  }
+  ) {}
 
   ngOnInit(): void {
     const slug = this.route.snapshot.params["slug"];

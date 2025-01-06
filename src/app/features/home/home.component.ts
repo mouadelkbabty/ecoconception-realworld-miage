@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     .pipe(tap(() => (this.tagsLoaded = true)));
   tagsLoaded = false;
   destroy$ = new Subject<void>();
+  isLoading = false;
 
   constructor(
     private readonly router: Router,
@@ -58,9 +59,23 @@ export class HomeComponent implements OnInit, OnDestroy {
         (isAuthenticated: boolean) => (this.isAuthenticated = isAuthenticated)
       );
 
- for (let i = 0; i < 20; i++) {
-  this.tagsService.getAll().subscribe();
-}
+    window.addEventListener('scroll', () => this.onScroll());
+  }
+
+  onScroll(): void {
+    if (
+      window.innerHeight + window.scrollY >= document.body.scrollHeight - 10 &&
+      !this.isLoading
+    ) {
+      this.loadMoreArticles();
+    }
+  }
+
+  loadMoreArticles(): void {
+    this.isLoading = true;
+    this.tagsService.getAll().subscribe(() => {
+      this.isLoading = false;
+    });
   }
 
   ngOnDestroy(): void {
