@@ -1,0 +1,26 @@
+.about-us {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .about-us-text {
+    margin-bottom: 20px;
+  }
+  
+  .about-us h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+  }
+  
+  .about-us p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+  }
+  
+  .about-us-image img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+  }
+  

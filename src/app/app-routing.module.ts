@@ -11,6 +11,11 @@ const routes: Routes = [
       import("./features/home/home.component").then((m) => m.HomeComponent),
   },
   {
+    path: "aboutUs",
+    loadComponent: () =>
+      import("./features/about-us/about-us.component").then((m) => m.AboutUsComponent),
+  },
+  {
     path: "login",
     loadComponent: () =>
       import("./core/auth/auth.component").then((m) => m.AuthComponent),

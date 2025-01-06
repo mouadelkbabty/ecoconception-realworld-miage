@@ -3,20 +3,29 @@
     <a class="navbar-brand" routerLink="/">conduit</a>
 
     <!-- Show this for logged out users -->
-    <ul *appShowAuthed="false" class="nav navbar-nav pull-xs-right">
+<ul *appShowAuthed="false" class="nav navbar-nav pull-xs-left">
+      <!-- Lien inutile -->
       <li class="nav-item">
-        <a class="nav-link" routerLink="/"> Home </a>
+        <a class="nav-link" routerLink="/aboutUs">About Us</a>
       </li>
-
       <li class="nav-item">
         <a class="nav-link" routerLink="/login" routerLinkActive="active">
           Sign in
         </a>
       </li>
-
+      <!-- Liens dupliqués -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/"> Home </a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/register" routerLinkActive="active">
           Sign up
+        </a>
+      </li>
+      <!-- Lien inutile vers les paramètres, inaccessible sans connexion -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/settings" routerLinkActive="active">
+          Settings
         </a>
       </li>
     </ul>
@@ -31,12 +40,6 @@
           [routerLinkActiveOptions]="{ exact: true }"
         >
           Home
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/editor" routerLinkActive="active">
-          <i class="ion-compose"></i>&nbsp;New Article
         </a>
       </li>
 

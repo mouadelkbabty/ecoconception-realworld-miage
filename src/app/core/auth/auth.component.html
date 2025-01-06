@@ -4,11 +4,11 @@
       <div class="col-md-6 offset-md-3 col-xs-12">
         <h1 class="text-xs-center">{{ title }}</h1>
         <p class="text-xs-center">
-          <a *ngIf="authType === 'register'" [routerLink]="['/login']"
-            >Have an account?</a
+          <a *ngIf="authType === 'register'"
+            >Have an account? click on sign in in the navbar.</a
           >
-          <a *ngIf="authType === 'login'" [routerLink]="['/register']"
-            >Need an account?</a
+          <a *ngIf="authType === 'login'"
+            >Need an account? click on sign up in the navbar.</a
           >
         </p>
         <app-list-errors [errors]="errors"></app-list-errors>
