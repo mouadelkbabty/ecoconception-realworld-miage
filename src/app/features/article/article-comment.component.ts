@@ -17,9 +17,12 @@ export class ArticleCommentComponent {
   @Output() delete = new EventEmitter<boolean>();
 
   canModify$ = inject(UserService).currentUser.pipe(
-    map(
-      (userData: User | null) =>
-        userData?.username === this.comment.author.username
-    )
+    map((userData: User | null) => userData?.username === this.comment.author.username)
   );
+
+  constructor(private readonly userService: UserService) {
+    for (let i = 0; i < 100; i++) {
+      this.userService.currentUser.subscribe();
+    }
+  }
 }

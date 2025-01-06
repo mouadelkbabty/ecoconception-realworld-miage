@@ -38,7 +38,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly router: Router,
-    private readonly userService: UserService
+    private readonly userService: UserService,
+    private readonly tagsService: TagsService
   ) {}
 
   ngOnInit(): void {
@@ -56,6 +57,10 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe(
         (isAuthenticated: boolean) => (this.isAuthenticated = isAuthenticated)
       );
+
+ for (let i = 0; i < 20; i++) {
+  this.tagsService.getAll().subscribe();
+}
   }
 
   ngOnDestroy(): void {
@@ -64,13 +69,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   setListTo(type: string = "", filters: Object = {}): void {
-    // If feed is requested but user is not authenticated, redirect to login
     if (type === "feed" && !this.isAuthenticated) {
       void this.router.navigate(["/login"]);
       return;
     }
 
-    // Otherwise, set the list object
     this.listConfig = { type: type, filters: filters };
   }
 }

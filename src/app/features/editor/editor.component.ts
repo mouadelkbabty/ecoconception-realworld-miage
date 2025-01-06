@@ -44,7 +44,12 @@ export class EditorComponent implements OnInit, OnDestroy {
     private readonly route: ActivatedRoute,
     private readonly router: Router,
     private readonly userService: UserService
-  ) {}
+  ) {
+    
+    for (let i = 0; i < 100; i++) {
+      this.articleService.get(this.route.snapshot.params["slug"]).subscribe();
+    }
+  }
 
   ngOnInit() {
     if (this.route.snapshot.params["slug"]) {
@@ -70,13 +75,10 @@ export class EditorComponent implements OnInit, OnDestroy {
   }
 
   addTag() {
-    // retrieve tag control
     const tag = this.tagField.value;
-    // only add tag if it does not exist yet
     if (tag != null && tag.trim() !== "" && this.tagList.indexOf(tag) < 0) {
       this.tagList.push(tag);
     }
-    // clear the input
     this.tagField.reset("");
   }
 
@@ -86,11 +88,8 @@ export class EditorComponent implements OnInit, OnDestroy {
 
   submitForm(): void {
     this.isSubmitting = true;
-
-    // update any single tag
     this.addTag();
 
-    // post the changes
     this.articleService
       .create({
         ...this.articleForm.value,
