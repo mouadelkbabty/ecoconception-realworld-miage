@@ -47,6 +47,67 @@ import { ShowAuthedDirective } from "../../shared/show-authed.directive";
   .cabrioles {
     transition: transform 0.5s ease, color 0.5s ease;
   }
+  .carousel {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 2px solid #5cb85c;
+  border-radius: 10px;
+}
+
+.carousel-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.slide img {
+  width: 100%;
+  border-bottom: 2px solid #5cb85c;
+}
+
+.slide p {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+
+button:hover {
+  background-color: #5cb85c;
+}
+
 
   .cabrioles:hover {
     color: #5CB85C;
