@@ -1,75 +1,85 @@
-<div class="settings-page">
-  <div class="container page">
-    <div class="row">
-      <div class="col-md-6 offset-md-3 col-xs-12">
-        <h1 class="text-xs-center">Your Settings</h1>
+<div class="settings-page" style="background: linear-gradient(45deg, #ff6b6b, #f06595); padding: 50px; border: 10px solid #000;">
+  <div class="container page" style="box-shadow: 10px 10px 20px rgba(0,0,0,0.8); border-radius: 20px; padding: 30px;">
+      <div class="row">
+          <div class="col-md-6 offset-md-3 col-xs-12" style="background: #fff; padding: 20px; border-radius: 15px; border: 5px solid #ff4757;">
+              <h1 class="text-xs-center" style="text-shadow: 2px 2px 5px #000; color: #2f3542; font-size: 3rem; text-transform: uppercase;">
+                  Your Settings
+              </h1>
 
-        <app-list-errors [errors]="errors"></app-list-errors>
-        <form [formGroup]="settingsForm" (ngSubmit)="submitForm()">
-          <fieldset [disabled]="isSubmitting">
-            <fieldset class="form-group">
-              <input
-                class="form-control"
-                type="text"
-                placeholder="URL of profile picture"
-                formControlName="image"
-                autocomplete="off"
-              />
-            </fieldset>
+              <app-list-errors [errors]="errors"></app-list-errors>
+              
+              <form [formGroup]="settingsForm" (ngSubmit)="submitForm()" style="border: 3px solid #000; padding: 20px; border-radius: 15px; background: linear-gradient(135deg, #70a1ff, #1e90ff);">
+                  <fieldset [disabled]="isSubmitting">
 
-            <fieldset class="form-group">
-              <input
-                class="form-control form-control-lg"
-                type="text"
-                placeholder="Username"
-                formControlName="username"
-                autocomplete="off"
-              />
-            </fieldset>
+                      <fieldset class="form-group" style="border: 2px dashed #2ed573; padding: 10px;">
+                          <input
+                              class="form-control"
+                              style="border: 2px solid #000; padding: 10px; font-size: 1.5rem; box-shadow: 5px 5px 15px rgba(0,0,0,0.5);"
+                              type="text"
+                              placeholder="URL of profile picture"
+                              formControlName="image"
+                              autocomplete="off"
+                          />
+                      </fieldset>
 
-            <fieldset class="form-group">
-              <textarea
-                class="form-control form-control-lg"
-                rows="8"
-                placeholder="Short bio about you"
-                formControlName="bio"
-                autocomplete="off"
-              ></textarea>
-            </fieldset>
+                      <fieldset class="form-group" style="border: 2px dashed #2ed573; padding: 10px;">
+                          <input
+                              class="form-control form-control-lg"
+                              style="border: 2px solid #000; padding: 10px; font-size: 1.5rem; box-shadow: 5px 5px 15px rgba(0,0,0,0.5);"
+                              type="text"
+                              placeholder="Username"
+                              formControlName="username"
+                              autocomplete="off"
+                          />
+                      </fieldset>
 
-            <fieldset class="form-group">
-              <input
-                class="form-control form-control-lg"
-                type="email"
-                placeholder="Email"
-                formControlName="email"
-                autocomplete="off"
-              />
-            </fieldset>
+                      <fieldset class="form-group" style="border: 2px dashed #2ed573; padding: 10px;">
+                          <textarea
+                              class="form-control form-control-lg"
+                              style="border: 2px solid #000; padding: 10px; font-size: 1.5rem; box-shadow: 5px 5px 15px rgba(0,0,0,0.5);"
+                              rows="8"
+                              placeholder="Short bio about you"
+                              formControlName="bio"
+                              autocomplete="off"
+                          ></textarea>
+                      </fieldset>
 
-            <fieldset class="form-group">
-              <input
-                class="form-control form-control-lg"
-                type="password"
-                placeholder="New Password"
-                formControlName="password"
-                autocomplete="new-password"
-              />
-            </fieldset>
+                      <fieldset class="form-group" style="border: 2px dashed #2ed573; padding: 10px;">
+                          <input
+                              class="form-control form-control-lg"
+                              style="border: 2px solid #000; padding: 10px; font-size: 1.5rem; box-shadow: 5px 5px 15px rgba(0,0,0,0.5);"
+                              type="email"
+                              placeholder="Email"
+                              formControlName="email"
+                              autocomplete="off"
+                          />
+                      </fieldset>
 
-            <button class="btn btn-lg btn-primary pull-xs-right" type="submit">
-              Update Settings
-            </button>
-          </fieldset>
-        </form>
+                      <fieldset class="form-group" style="border: 2px dashed #2ed573; padding: 10px;">
+                          <input
+                              class="form-control form-control-lg"
+                              style="border: 2px solid #000; padding: 10px; font-size: 1.5rem; box-shadow: 5px 5px 15px rgba(0,0,0,0.5);"
+                              type="password"
+                              placeholder="New Password"
+                              formControlName="password"
+                              autocomplete="new-password"
+                          />
+                      </fieldset>
 
-        <!-- Line break for logout button -->
-        <hr />
+                      <button class="btn btn-lg btn-primary pull-xs-right" type="submit"
+                          style="background: linear-gradient(45deg, #ff6b6b, #f06595); border: 2px solid #000; font-size: 2rem; text-transform: uppercase; box-shadow: 5px 5px 15px rgba(0,0,0,0.5);">
+                          Update Settings
+                      </button>
+                  </fieldset>
+              </form>
 
-        <button class="btn btn-outline-danger" (click)="logout()">
-          Or click here to logout.
-        </button>
+              <hr style="border: 3px solid #000;" />
+
+              <button class="btn btn-outline-danger" (click)="logout()"
+                  style="border: 2px solid #000; background: #ff4757; font-size: 2rem; padding: 10px; box-shadow: 5px 5px 15px rgba(0,0,0,0.5);">
+                  Or click here to logout.
+              </button>
+          </div>
       </div>
-    </div>
   </div>
 </div>
